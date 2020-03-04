@@ -1,0 +1,10 @@
+docker run -p 5432:5432 -d \
+    -e POSTGRES_PASSWORD = password \
+    -e POSTGRES_USER = cinta \
+    -e POSTGRES_DB = pg-docker \
+    -v pgdata:/var/lib/postgresql/data \
+    postgres 
+
+psql pg-docker -h localhost -U cinta
+
+docker exec -it 09d98ad6c79e psql -U cinta pg-docker
